@@ -10,7 +10,7 @@
     <meta name="author" content="">
 
     <title>戀戀賴-line交友</title>
-
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
     <!-- Bootstrap Core CSS -->
     <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
@@ -140,15 +140,15 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input type="text" class="form-control" placeholder="寫下你的lineID" id="name" required data-validation-required-message="Please enter your name.">
+                                    <input type="text" class="form-control" placeholder="寫下你的lineID" id="name" required data-validation-required-message="寫下你的lineID">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input type="email" class="form-control" placeholder="寫下你的email" id="email" required data-validation-required-message="Please enter your email address.">
+                                    <input type="email" class="form-control" placeholder="寫下你的email" id="email" required data-validation-required-message="寫下你的email">
                                     <p class="help-block text-danger"></p>
                                 </div>
                                 <div class="form-group">
-                                    <input  class="form-control" placeholder="寫下你的地區和性別（ex:台北市女）" id="phone" required data-validation-required-message="Please enter your phone number.">
+                                    <input  class="form-control" placeholder="寫下你的地區和性別（ex:台北市女）" id="religion" required data-validation-required-message="寫下你的地區和性別（ex:台北市女）">
                                     <p class="help-block text-danger"></p>
                                 </div>
                             </div>
@@ -161,7 +161,7 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button type="submit" class="btn btn-xl">送出</button>
+                                <button onclick="Push()" type="submit" class="btn btn-xl">送出</button>
                             </div>
                         </div>
                     </form>
@@ -180,7 +180,7 @@
                     <ul class="list-inline social-buttons">
                        <!--  <li><a href="#"><i class="fa fa-twitter"></i></a>
                         </li> -->
-                        <li><a href="www.facebook"><i class="fa fa-facebook"></i></a>
+                        <li><a href="www.facebook.com"><i class="fa fa-facebook"></i></a>
                         </li>
                        <!--  <li><a href="#"><i class="fa fa-linkedin"></i></a>
                         </li> -->
@@ -380,10 +380,41 @@
         </div>
     </div>
 
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCkxbYc7KTSGCs0dDLaYArSfJTL3AWuCF8",
+    authDomain: "lovelinesimpleuserdata.firebaseapp.com",
+    databaseURL: "https://lovelinesimpleuserdata.firebaseio.com",
+    storageBucket: "",
+    messagingSenderId: "597868632329"
+  };
+  firebase.initializeApp(config);
+
+
+  function Push(){
+    console.log("hello");
+                    lineID=document.getElementById('name').value;
+                    email=document.getElementById('email').value;
+                    locationPlusGender=document.getElementById('religion').value;
+                    suggest=document.getElementById('message').value;
+
+                    firebase.database().ref('user-data').push({
+                    lineID: lineID,
+                    email: email,
+                    locationPlusGender:locationPlusGender,
+                    suggestion:suggest
+                  });
+
+                    document.getElementById('name').value="";
+                    document.getElementById('email').value="";
+                    document.getElementById('religion').value="";
+                    document.getElementById('message').value="";
+                }
+</script>
     <!-- jQuery -->
     <!--<script src="vendor/jquery/jquery.min.js"></script>-->
-<script
-  src="https://code.jquery.com/jquery-3.1.1.min.js"
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"
   integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
   crossorigin="anonymous"></script>
     <!-- Bootstrap Core JavaScript -->
