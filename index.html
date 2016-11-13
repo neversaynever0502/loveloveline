@@ -404,14 +404,14 @@
                     var email=document.getElementById('email').value;
                     var locationPlusGender=document.getElementById('religion').value;
                     var suggest=document.getElementById('message').value;
-
+ console.log("hello2");
                     firebase.database().ref('user-data').push({
                     lineID: lineID,
                     email: email,
                     locationPlusGender:locationPlusGender,
                     suggestion:suggest
                   });
-                    console.log(email,lineID,locationPlusGender,suggest)
+                    console.log(email,lineID,locationPlusGender,suggest);
 
                     document.getElementById('name').value="";
                     document.getElementById('email').value="";
