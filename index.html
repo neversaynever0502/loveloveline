@@ -398,7 +398,9 @@
   firebase.initializeApp(config);
 
 
-  function Push(){
+  function Push(e){
+
+
                     console.log("hello");
                     lineID=document.getElementById('name').value;
                     email=document.getElementById('email').value;
@@ -418,7 +420,7 @@
                     document.getElementById('message').value="";
              
                     swal("Good job!", '歡迎加入戀戀賴' + lineID + ', 已收到你的註冊，將會在近期email與你聯絡：）', "success");
-                     
+                    e.preventDefault();
 
                 }
 
