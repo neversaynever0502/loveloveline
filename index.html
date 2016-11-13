@@ -167,7 +167,7 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button onclick="Push()"  class="btn btn-xl">送出</button>
+                                <button onclick=" if(confirm('确定跳转？')) Push()"  class="btn btn-xl">送出</button>
                             </div>
                         </div>
                     </form>
@@ -404,13 +404,13 @@
                     var email=document.getElementById('email').value;
                     var locationPlusGender=document.getElementById('religion').value;
                     var suggest=document.getElementById('message').value;
- console.log("hello2");
+                    console.log("hello2");
                     firebase.database().ref('user-data').push({
-                    lineID: lineID,
-                    email: email,
-                    locationPlusGender:locationPlusGender,
-                    suggestion:suggest
-                  });
+                        lineID: lineID,
+                        email: email,
+                        locationPlusGender:locationPlusGender,
+                        suggestion:suggest
+                      });
                     console.log(email,lineID,locationPlusGender,suggest);
 
                     document.getElementById('name').value="";
