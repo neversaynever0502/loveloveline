@@ -400,10 +400,10 @@
 
   function Push(){
                     console.log("hello");
-                    lineID=document.getElementById('name').value;
-                    email=document.getElementById('email').value;
-                    locationPlusGender=document.getElementById('religion').value;
-                    suggest=document.getElementById('message').value;
+                    var lineID=document.getElementById('name').value;
+                    var email=document.getElementById('email').value;
+                    var locationPlusGender=document.getElementById('religion').value;
+                    var suggest=document.getElementById('message').value;
 
                     firebase.database().ref('user-data').push({
                     lineID: lineID,
@@ -411,13 +411,14 @@
                     locationPlusGender:locationPlusGender,
                     suggestion:suggest
                   });
+                    console.log(email,lineID,locationPlusGender,suggest)
 
                     document.getElementById('name').value="";
                     document.getElementById('email').value="";
                     document.getElementById('religion').value="";
                     document.getElementById('message').value="";
              
-                    swal("Good job!", '歡迎加入戀戀賴' + lineID + ', 已收到你的註冊，將會在近期email與你聯絡：）', "success");
+                    // swal("Good job!", '歡迎加入戀戀賴' + lineID + ', 已收到你的註冊，將會在近期email與你聯絡：）', "success");
                      
 
                 }
