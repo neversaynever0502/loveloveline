@@ -10,6 +10,7 @@
     <meta name="author" content="">
 
     <title>戀戀賴-line交友</title>
+    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 
     <link rel="stylesheet" type="text/css" href="dist/sweetalert.css">
     <script src="dist/sweetalert.min.js"></script>
@@ -166,7 +167,7 @@
                             <div class="clearfix"></div>
                             <div class="col-lg-12 text-center">
                                 <div id="success"></div>
-                                <button onclick="Push()" id="bu"  class="btn btn-xl">送出</button>
+                                <button onclick="Push()"  class="btn btn-xl">送出</button>
                             </div>
                         </div>
                     </form>
@@ -384,11 +385,9 @@
             </div>
         </div>
     </div>
-    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
 
 <script>
   // Initialize Firebase
-  
   var config = {
     apiKey: "AIzaSyCkxbYc7KTSGCs0dDLaYArSfJTL3AWuCF8",
     authDomain: "lovelinesimpleuserdata.firebaseapp.com",
@@ -398,56 +397,30 @@
   };
   firebase.initializeApp(config);
 
-$("#bu").click(function(event){
-  event.preventDefault();
-   console.log("hello");
+
+  function Push(){
+                    console.log("hello");
                     lineID=document.getElementById('name').value;
                     email=document.getElementById('email').value;
                     locationPlusGender=document.getElementById('religion').value;
                     suggest=document.getElementById('message').value;
 
                     firebase.database().ref('user-data').push({
-                        lineID: lineID,
-                        email: email,
-                        locationPlusGender:locationPlusGender,
-                        suggestion:suggest
-                      });
+                    lineID: lineID,
+                    email: email,
+                    locationPlusGender:locationPlusGender,
+                    suggestion:suggest
+                  });
 
                     document.getElementById('name').value="";
                     document.getElementById('email').value="";
                     document.getElementById('religion').value="";
                     document.getElementById('message').value="";
-                        
-                    // swal("Good job!", '歡迎加入戀戀賴' + lineID + ', 已收到你的註冊，將會在近期email與你聯絡：）', "success")
-});
-
-  // function Push(e){
-
-
-
-
-  //                   console.log("hello");
-  //                   lineID=document.getElementById('name').value;
-  //                   email=document.getElementById('email').value;
-  //                   locationPlusGender=document.getElementById('religion').value;
-  //                   suggest=document.getElementById('message').value;
-
-  //                   firebase.database().ref('user-data').push({
-  //                   lineID: lineID,
-  //                   email: email,
-  //                   locationPlusGender:locationPlusGender,
-  //                   suggestion:suggest
-  //                 });
-
-  //                   document.getElementById('name').value="";
-  //                   document.getElementById('email').value="";
-  //                   document.getElementById('religion').value="";
-  //                   document.getElementById('message').value="";
              
-  //                   swal("Good job!", '歡迎加入戀戀賴' + lineID + ', 已收到你的註冊，將會在近期email與你聯絡：）', "success");
-  //                   e.preventDefault();
+                    swal("Good job!", '歡迎加入戀戀賴' + lineID + ', 已收到你的註冊，將會在近期email與你聯絡：）', "success");
+                     
 
-  //               }
+                }
 
 </script>
     <!-- jQuery -->
