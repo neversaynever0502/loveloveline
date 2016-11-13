@@ -44,10 +44,10 @@ $(function() {
                 },
                 error: function() {
                     // Fail message
-                    $('#success').html("<div class='alert alert-danger'>");
+                    $('#success').html("<div class='alert alert-success'>");
                     $('#success > .alert-danger').html("<button type='button' class='close' data-dismiss='alert' aria-hidden='true'>&times;")
                         .append("</button>");
-                    $('#success > .alert-success').append("<strong>歡迎加入戀戀賴 " + firstName + ", 已收到你的註冊，將會在近期email與你聯絡：）");
+                    $('#success > .alert-danger').append("<strong>歡迎加入戀戀賴 " + firstName + ", 已收到你的註冊，將會在近期email與你聯絡：）");
                     $('#success > .alert-danger').append('</div>');
                     //clear all fields
                     $('#contactForm').trigger("reset");
