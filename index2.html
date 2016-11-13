@@ -1,0 +1,28 @@
+<head>
+	    <script src="https://www.gstatic.com/firebasejs/3.6.0/firebase.js"></script>
+
+</head>
+<body>
+
+	<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyCkxbYc7KTSGCs0dDLaYArSfJTL3AWuCF8",
+    authDomain: "lovelinesimpleuserdata.firebaseapp.com",
+    databaseURL: "https://lovelinesimpleuserdata.firebaseio.com",
+    storageBucket: "",
+    messagingSenderId: "597868632329"
+  };
+  firebase.initializeApp(config);
+
+    firebase.database().ref('user-data').push({
+	    lineID: 'rrr',
+	    email: 'never@gg.com',
+	    locationPlusGender:'taiepi',
+	    suggestion:'mmm'
+	  });
+
+
+
+</script>
+</body>
